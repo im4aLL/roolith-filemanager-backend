@@ -1,0 +1,20 @@
+{
+    "name": "roolith/filemanager",
+    "description": "A file manager to support roolith-filemanager frontend",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hadi",
+            "email": "me@habibhadi.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"Roolith\\Filemanager\\": "src/"}
+    },
+    "version": "1.0.0"
+}
