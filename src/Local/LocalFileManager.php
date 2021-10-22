@@ -1,10 +1,12 @@
 <?php
-namespace Roolith\Filemanager\Adapters\Local;
+namespace Roolith\Filemanager\Local;
 
-use Roolith\Filemanager\Interfaces\Adapters\LocalAdapterInterface;
+use Roolith\Filemanager\FileSystem;
+use Roolith\Filemanager\Interfaces\System\LocalFileSystemInterface;
 
-class Local implements LocalAdapterInterface
+class LocalFileManager extends FileSystem implements LocalFileSystemInterface
 {
+    private $rootFolder;
 
     /**
      * @inheritDoc
@@ -121,17 +123,11 @@ class Local implements LocalAdapterInterface
     /**
      * @inheritDoc
      */
-    public function setFolderPermission($path, $permission)
+    public function setRootFolder($path)
     {
-        // TODO: Implement setFolderPermission() method.
-    }
+        $this->rootFolder = $path;
 
-    /**
-     * @inheritDoc
-     */
-    public function setFilePermission($path, $permission)
-    {
-        // TODO: Implement setFilePermission() method.
+        return $this;
     }
 
     /**
@@ -145,16 +141,10 @@ class Local implements LocalAdapterInterface
     /**
      * @inheritDoc
      */
-    public function setRootFolder($path)
+    public function getAll($folderPath = '', $settings = [])
     {
-        // TODO: Implement setRootFolder() method.
-    }
+        $folderPath = $this->sanitizePath($folderPath);
 
-    /**
-     * @inheritDoc
-     */
-    public function getAll($folderPath, $settings = [])
-    {
-        // TODO: Implement getAll() method.
+        return scandir($this->rootFolder.$folderPath);
     }
 }
