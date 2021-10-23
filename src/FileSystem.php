@@ -27,27 +27,30 @@ abstract class FileSystem implements CoreBehaviorInterface, DirectoryHandlerInte
      * Get lists with permitted extensions
      *
      * @param $lists array
+     * @param $path string
      * @return array
      */
-    protected function getPermittedExtensions($lists)
+    protected function getPermittedExtensions($lists, $path)
     {
         $result = ['folders' => [], 'files' => []];
+        $total = count($this->permittedExtensions);
 
         foreach ($lists as $item) {
-            if (is_dir($item) && $item !== '.' && $item !== '..') {
-                $result['folders'][] = $item;
-            } else {
-                if (count($this->permittedExtensions) > 0) {
-                    $ext = $this->getFileExtension($item);
-                    $ext = strtolower($ext);
+            if ($item !== '.' && $item !== '..') {
+                if (is_dir($path.'/'.$item)) {
+                    $result['folders'][] = $item;
+                } else {
+                    if ($total > 0) {
+                        $ext = $this->getFileExtension($item);
+                        $ext = strtolower($ext);
 
-                    if (in_array($ext, $this->permittedExtensions)) {
+                        if (in_array($ext, $this->permittedExtensions)) {
+                            $result['files'][] = $item;
+                        }
+                    } else {
                         $result['files'][] = $item;
                     }
-                } else if ($item !== '.' && $item !== '..') {
-                    $result['files'][] = $item;
                 }
-
             }
         }
 

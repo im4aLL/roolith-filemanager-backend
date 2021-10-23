@@ -149,6 +149,6 @@ class LocalFileManager extends FileSystem implements LocalFileSystemInterface
 
         $lists = scandir($this->rootFolder.$folderPath);
 
-        return $this->getPermittedExtensions($lists);
+        return $this->getPermittedExtensions($lists, $this->rootFolder.$folderPath);
     }
 }
