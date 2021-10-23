@@ -135,7 +135,9 @@ class LocalFileManager extends FileSystem implements LocalFileSystemInterface
      */
     public function allowedExtensions($extensions = [])
     {
-        // TODO: Implement allowedExtensions() method.
+        $this->permittedExtensions = $extensions;
+
+        return $this;
     }
 
     /**
@@ -145,6 +147,8 @@ class LocalFileManager extends FileSystem implements LocalFileSystemInterface
     {
         $folderPath = $this->sanitizePath($folderPath);
 
-        return scandir($this->rootFolder.$folderPath);
+        $lists = scandir($this->rootFolder.$folderPath);
+
+        return $this->getPermittedExtensions($lists);
     }
 }
