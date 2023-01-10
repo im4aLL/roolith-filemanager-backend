@@ -10,5 +10,5 @@ class FileSystem
     public function __construct(FileSystemDriverInterface $driver)
     {
         $this->driver = $driver;
-    }
+    } 
 }
