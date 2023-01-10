@@ -48,7 +48,7 @@ interface DirectoryHandlerInterface
     public function copyDirectory($directoryPath, $destinationPath);
 
     /**
-     * Cut and paste directory to destination path
+     * Cut-and-paste directory to destination path
      *
      * @param $directoryPath string
      * @param $destinationPath string

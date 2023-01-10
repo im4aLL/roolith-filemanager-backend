@@ -1,10 +1,9 @@
 <?php
 require_once __DIR__.'/../vendor/autoload.php';
 
-$localFileManager = new \Roolith\Filemanager\Local\LocalFileManager();
-$localFileManager->setRootFolder(__DIR__.'/files')
-    ->allowedExtensions([]);
+$driver = new \Roolith\Filemanager\Adapter\LocalFileSystemDriver();
+$fileManager = new \Roolith\Filemanager\FileSystem($driver);
 
 echo '<pre>';
-print_r($localFileManager->getAll());
+print_r($fileManager);
 echo '</pre>';
