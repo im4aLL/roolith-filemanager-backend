@@ -16,8 +16,15 @@ interface SystemAttributeInterface
      * Get list of files
      *
      * @param $folderPath string
-     * @param array $settings
      * @return array
      */
-    public function getAll($folderPath = '', $settings = []);
+    public function getAll($folderPath = '');
+
+    /**
+     * Set time format
+     *
+     * @param string $timeFormat
+     * @return $this
+     */
+    public function setTimeFormat($timeFormat);
 }

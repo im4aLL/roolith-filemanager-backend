@@ -1,9 +1,11 @@
 <?php
+use Roolith\Filemanager\Adapter\LocalFileSystemDriver;
+use Roolith\Filemanager\FileSystem;
+
 require_once __DIR__.'/../vendor/autoload.php';
 
-$driver = new \Roolith\Filemanager\Adapter\LocalFileSystemDriver();
-$fileManager = new \Roolith\Filemanager\FileSystem($driver);
+$driver = new LocalFileSystemDriver();
+$driver->setRootFolder(__DIR__ . '/files');
+$fileManager = new FileSystem($driver);
 
-echo '<pre>';
-print_r($fileManager);
-echo '</pre>';
+$fileManager->folder('/B')->getJsonResponse();
