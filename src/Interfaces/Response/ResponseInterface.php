@@ -23,7 +23,7 @@ interface ResponseInterface
     /**
      * Should push json response to header
      *
-     * @return void
+     * @return json
      */
     public function json();
 }

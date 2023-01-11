@@ -29,7 +29,7 @@ interface FileSystemInterface
     /**
      * Get json response
      *
-     * @return void
+     * @return json
      */
     public function getJsonResponse();
 }
