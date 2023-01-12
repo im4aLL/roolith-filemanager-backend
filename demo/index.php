@@ -8,4 +8,6 @@ $driver = new LocalFileSystemDriver();
 $driver->setRootFolder(__DIR__ . '/files');
 $fileManager = new FileSystem($driver);
 
-$fileManager->folder('/B')->getJsonResponse();
+echo '<pre>';
+print_r($fileManager->folder('/B')->get());
+echo '</pre>';

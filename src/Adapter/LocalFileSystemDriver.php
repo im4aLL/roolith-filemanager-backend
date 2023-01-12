@@ -4,7 +4,6 @@ namespace Roolith\Filemanager\Adapter;
 
 use Roolith\Filemanager\Interfaces\FileSystemDriverInterface;
 use Roolith\Filemanager\Interfaces\System\LocalFileSystemInterface;
-use Roolith\Filemanager\Interfaces\SystemAttributeInterface;
 use Roolith\Filemanager\Utils\Helper;
 
 class LocalFileSystemDriver implements FileSystemDriverInterface, LocalFileSystemInterface
