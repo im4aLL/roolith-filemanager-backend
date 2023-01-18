@@ -66,4 +66,9 @@ class FileSystem implements FileSystemInterface
 
         return $this;
     }
+
+    public function uploadFile($file, $path)
+    {
+        // TODO: Implement uploadFile() method.
+    }
 }

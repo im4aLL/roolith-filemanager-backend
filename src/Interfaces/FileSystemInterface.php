@@ -32,4 +32,13 @@ interface FileSystemInterface
      * @return json
      */
     public function getJsonResponse();
+
+    /**
+     * Upload file
+     *
+     * @param $file string
+     * @param $path string
+     * @return boolean
+     */
+    public function uploadFile($file, $path);
 }
